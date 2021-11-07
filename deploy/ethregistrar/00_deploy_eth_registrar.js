@@ -5,7 +5,7 @@ const sha3 = require('web3-utils').sha3;
 module.exports = async ({getNamedAccounts, deployments, network}) => {
     const {deploy} = deployments;
     const {deployer, owner} = await getNamedAccounts();
-
+    console.log(owner, deployer)
     const baseRegistrar = await ethers.getContract('BaseRegistrarImplementation');
 
     const priceOracle = await ethers.getContract('StablePriceOracle')
@@ -19,8 +19,6 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
     const controller = await ethers.getContract('ETHRegistrarController')
     const ens = await ethers.getContract('ENSRegistry')
     const transactions = []
-
-    transactions.push(await ens.setSubnodeOwner(ZERO_HASH,sha3('avax'),controller.address));
     transactions.push(await baseRegistrar.addController(controller.address, {from: deployer}));
     // ESTIMATE GAS -->
     transactions.push(await controller.setPriceOracle(priceOracle.address, {from: deployer}));

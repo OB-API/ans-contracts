@@ -17,6 +17,7 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
 
     const resolver = await ethers.getContract('PublicResolver')
     const ethregistrar = await ethers.getContract('ETHRegistrarController')
+    const base = await ethers.getContract('BaseRegistrarImplementation')
 
     const transactions = []
     transactions.push(await ens.setSubnodeOwner(ZERO_HASH, sha3('avax'), owner))
