@@ -75,7 +75,7 @@ module.exports = {
       gas:8000000,
       chainId: 43113,
       accounts: {
-        mnemonic: "stairs glide gaze hold decrease erupt lyrics unveil love crack egg dumb aim use avoid dolphin twist submit energy entire suit know chair despair"
+        mnemonic: "guard crowd mercy margin task slide clog salute hockey arrive giant tortoise glare arrest decide position bottom quantum shoulder indicate moment praise cry try"
       }
     },
     avalanche: {
