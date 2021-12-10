@@ -1,7 +1,7 @@
 {
-  "name": "@ensdomains/ens-contracts",
+  "name": "@ansdomains/ans-contracts",
   "version": "0.0.7",
-  "description": "ENS contracts",
+  "description": "ANS contracts",
   "scripts": {
     "test": "npx hardhat test",
     "lint": "npx hardhat check",
@@ -52,12 +52,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ensdomains/ens-contracts.git"
+    "url": "git+https://github.com/Cynsar-Foundation/ans-contracts.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ensdomains/ens-contracts/issues"
+    "url": "https://github.com/Cynsar-Foundation/ans-contracts/issues"
   },
-  "homepage": "https://github.com/ensdomains/ens-contracts#readme"
+  "homepage": "https://github.com/Cynsar-Foundation/ans-contracts#readme"
 }
