@@ -1,6 +1,6 @@
 const { ethers } = require("hardhat");
 
-const ZERO_HASH = "0x0000000000000000000000000000000000000000000000000000000000000000";
+const ZERO_HASH = "0x0000000000000000000000000000000000000000000000000000000000000000"; // tld // root name
 
 const ethernal = require('hardhat-ethernal');
 module.exports = async ({getNamedAccounts, deployments, network}) => {
@@ -36,7 +36,7 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
         const rootOwner = await registry.owner(ZERO_HASH);
         switch(rootOwner) {
         case deployer:
-            const tx = await registry.setOwner(ZERO_HASH, owner, {from: deployer});
+            const tx = await registry.setOwner(ZERO_HASH, owner, {from: deployer}); 
             console.log("Setting final owner of root node on registry (tx:${tx.hash})...");
             await tx.wait();
             break;

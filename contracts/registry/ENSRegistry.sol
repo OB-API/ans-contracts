@@ -15,6 +15,8 @@ contract ENSRegistry is ENS {
 
     mapping (bytes32 => Record) records;
     mapping (address => mapping(address => bool)) operators;
+    address public auctioner;
+    bool public isAuctionerSet;
 
     // Permits modifications only by the owner of the specified node.
     modifier authorised(bytes32 node) {
@@ -23,11 +25,31 @@ contract ENSRegistry is ENS {
         _;
     }
 
+    modifier onlyAuctioner() {
+        require(msg.sender == auctioner);
+        _;
+    }
+
+    
+
     /**
      * @dev Constructs a new ENS registrar.
      */
     constructor() public {
         records[0x0].owner = msg.sender;
+    }
+
+    /** @dev Function for the Auctioner
+     */
+    function setAuctioner() external override {
+        require(isAuctionerSet == false);
+        auctioner = msg.sender;
+        isAuctionerSet = true;
+    } 
+
+
+    function setTldRecord(bytes32 tld, address owner ) external onlyAuctioner() override {
+        _setOwner(tld , owner);
     }
 
     /**
