@@ -26,11 +26,6 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
     transactions.push(await owned.setInterface(namehash.hash('avax'), "0x018fac06", controller.address))
     console.log(`Waiting on settings to take place ${transactions.length}`)
     await Promise.all(transactions.map((tx) => tx.wait()));
-    
-
-
-
-
 }
 
 module.exports.tags = ['eth-registrar'];
