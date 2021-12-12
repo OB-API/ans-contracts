@@ -19,6 +19,5 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
 
 }
 
-
 module.exports.tags = ['name']
 module.exports.dependencies = ['registry']

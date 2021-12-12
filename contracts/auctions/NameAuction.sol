@@ -51,6 +51,18 @@ contract NameAuction {
         beneficiary = _beneficiary;
     }
 
+    function bytes32ToString(bytes32 _bytes32) public pure returns (string memory) {
+        uint8 i = 0;
+        while(i < 32 && _bytes32[i] != 0) {
+            i++;
+        }
+        bytes memory bytesArray = new bytes(i);
+        for (i = 0; i < 32 && _bytes32[i] != 0; i++) {
+            bytesArray[i] = _bytes32[i];
+        }
+        return string(bytesArray);
+    }
+
     function placeBid(bytes32 bidHash) external payable {
         require(block.timestamp >= biddingStarts && block.timestamp < biddingEnds);
 
@@ -60,7 +72,7 @@ contract NameAuction {
         emit BidPlaced(msg.sender, msg.value, bidHash);
     }
 
-    function revealBid(address bidder, string memory label, bytes32 secret) external {
+    function revealBid(address bidder, bytes32 label, bytes32 secret) external {
         require(block.timestamp >= biddingEnds && block.timestamp < revealEnds);
 
         bytes32 bidHash = computeBidHash(bidder, label, secret);
@@ -75,7 +87,7 @@ contract NameAuction {
             return;
         }
 
-        emit BidRevealed(bidder, keccak256(abi.encodePacked(label)), label, bidAmount);
+        emit BidRevealed(bidder, keccak256(abi.encodePacked(label)), bytes32ToString(label), bidAmount);
 
         Auction storage a = auctions[label];
         if(bidAmount > a.maxBid) {
@@ -113,7 +125,7 @@ contract NameAuction {
         }
         fundsAvailable += winPrice;
         ens.setTldRecord(label, auction.winner);
-        emit AuctionFinalised(auction.winner, keccak256(abi.encodePacked(label)), label, winPrice);
+        emit AuctionFinalised(auction.winner, keccak256(abi.encodePacked(label)), bytes32ToString(label), winPrice);
 
         labels[label] = auction.winner;
         delete auctions[label];
@@ -125,16 +137,16 @@ contract NameAuction {
         fundsAvailable = 0;
     }
 
-    function auction(string memory name) external view returns(uint maxBid, uint secondBid, address winner) {
+    function auction(bytes32 name) external view returns(uint maxBid, uint secondBid, address winner) {
         Auction storage a = auctions[name];
         return (a.maxBid, a.secondBid, a.winner);
     }
 
-    function labelOwner(string memory name) external view returns(address) {
+    function labelOwner(bytes32 name) external view returns(address) {
         return labels[name];
     }
 
-    function computeBidHash(address bidder, string memory name, bytes32 secret) public pure returns(bytes32) {
+    function computeBidHash(address bidder, bytes32 name, bytes32 secret) public pure returns(bytes32) {
         return keccak256(abi.encodePacked(bidder, name, secret));
     }
 
@@ -144,7 +156,7 @@ contract NameAuction {
      * @param s The string to measure the length of
      * @return The length of the input string
      */
-    function strlen(string memory s) internal pure returns (uint) {
+    function strlen(bytes32 s) internal pure returns (uint) {
         s; // Don't warn about unused variables
         // Starting here means the LSB will be the byte we care about
         uint ptr;
