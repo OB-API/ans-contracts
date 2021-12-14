@@ -67,6 +67,8 @@ contract HashRegistrar is Registrar {
     constructor(ENS _ens,  uint _startDate) public {
         ens = _ens;
         registryStarted = _startDate > 0 ? _startDate : block.timestamp;
+        // setAuctioner() method from ENSRegistry
+        ens.setAuctioner();
     }
 
     /**
@@ -216,6 +218,10 @@ contract HashRegistrar is Registrar {
 
         // trySetSubnodeOwner(_hash, h.deed.owner());
         emit HashRegistered(_hash, h.deed.owner(), h.value, h.registrationDate);
+        
+        // trySetSubnodeOwner()
+        //setTldRecord() 
+        ens.setTldRecord(_hash, h.deed.owner());
     }
 
     /**
@@ -230,6 +236,7 @@ contract HashRegistrar is Registrar {
         Entry storage h = _entries[_hash];
         h.deed.setOwner(newOwner);
         // trySetSubnodeOwner(_hash, newOwner);
+        ens.setTldRecord(_hash, newOwner);
     }
 
     /**
