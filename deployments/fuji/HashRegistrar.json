@@ -1,0 +1,858 @@
+{
+  "address": "0x69a5e7fC44aFe18A6B0e72d977c58625b3258A10",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract ENS",
+          "name": "_ens",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_startDate",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "registrationDate",
+          "type": "uint256"
+        }
+      ],
+      "name": "AuctionStarted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "status",
+          "type": "uint8"
+        }
+      ],
+      "name": "BidRevealed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "registrationDate",
+          "type": "uint256"
+        }
+      ],
+      "name": "HashInvalidated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "registrationDate",
+          "type": "uint256"
+        }
+      ],
+      "name": "HashRegistered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "HashReleased",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "bidder",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "deposit",
+          "type": "uint256"
+        }
+      ],
+      "name": "NewBid",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "contract Deed",
+          "name": "deed",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "registrationDate",
+          "type": "uint256"
+        }
+      ],
+      "name": "acceptRegistrarTransfer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "bidder",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "seal",
+          "type": "bytes32"
+        }
+      ],
+      "name": "cancelBid",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ens",
+      "outputs": [
+        {
+          "internalType": "contract ENS",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "entries",
+      "outputs": [
+        {
+          "internalType": "enum Registrar.Mode",
+          "name": "",
+          "type": "uint8"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "labels",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "eraseNode",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "finalizeAuction",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "getAllowedTime",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "unhashedName",
+          "type": "string"
+        }
+      ],
+      "name": "invalidateName",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "isAllowed",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "allowed",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "launchLength",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "sealedBid",
+          "type": "bytes32"
+        }
+      ],
+      "name": "newBid",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "registryStarted",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "releaseDeed",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "sealedBids",
+      "outputs": [
+        {
+          "internalType": "contract Deed",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "salt",
+          "type": "bytes32"
+        }
+      ],
+      "name": "shaBid",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "startAuction",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "_hashes",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "startAuctions",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32[]",
+          "name": "hashes",
+          "type": "bytes32[]"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "sealedBid",
+          "type": "bytes32"
+        }
+      ],
+      "name": "startAuctionsAndBid",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "state",
+      "outputs": [
+        {
+          "internalType": "enum Registrar.Mode",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "address payable",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "transferRegistrars",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_hash",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "_salt",
+          "type": "bytes32"
+        }
+      ],
+      "name": "unsealBid",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xce42fdb4c5b75022d3797361c39f8b5f5ea4be5116b2cf5831f500d55987ee04",
+  "receipt": {
+    "to": null,
+    "from": "0xA55d58E13A7f452554151bab5BD6c75d0b8dd831",
+    "contractAddress": "0x69a5e7fC44aFe18A6B0e72d977c58625b3258A10",
+    "transactionIndex": 0,
+    "gasUsed": "2599651",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x553d1d683efddae4e9229b95d0be796ef99a00f91bfc846d6bbafe1ba067aa85",
+    "transactionHash": "0xce42fdb4c5b75022d3797361c39f8b5f5ea4be5116b2cf5831f500d55987ee04",
+    "logs": [],
+    "blockNumber": 3906924,
+    "cumulativeGasUsed": "2599651",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x57695e53839eEDe57217e4ECEc768e6A02d2c230",
+    1639301531
+  ],
+  "solcInputHash": "1bd792ce2c217ca78bb2f37afe180f16",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.4+commit.c7e474f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract ENS\",\"name\":\"_ens\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_startDate\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"registrationDate\",\"type\":\"uint256\"}],\"name\":\"AuctionStarted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"status\",\"type\":\"uint8\"}],\"name\":\"BidRevealed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"registrationDate\",\"type\":\"uint256\"}],\"name\":\"HashInvalidated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"registrationDate\",\"type\":\"uint256\"}],\"name\":\"HashRegistered\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"HashReleased\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"}],\"name\":\"NewBid\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"internalType\":\"contract Deed\",\"name\":\"deed\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"registrationDate\",\"type\":\"uint256\"}],\"name\":\"acceptRegistrarTransfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"bidder\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"seal\",\"type\":\"bytes32\"}],\"name\":\"cancelBid\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"ens\",\"outputs\":[{\"internalType\":\"contract ENS\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"entries\",\"outputs\":[{\"internalType\":\"enum Registrar.Mode\",\"name\":\"\",\"type\":\"uint8\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"labels\",\"type\":\"bytes32[]\"}],\"name\":\"eraseNode\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"finalizeAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"getAllowedTime\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"unhashedName\",\"type\":\"string\"}],\"name\":\"invalidateName\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"_timestamp\",\"type\":\"uint256\"}],\"name\":\"isAllowed\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"allowed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"launchLength\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"sealedBid\",\"type\":\"bytes32\"}],\"name\":\"newBid\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"registryStarted\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"releaseDeed\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"sealedBids\",\"outputs\":[{\"internalType\":\"contract Deed\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"salt\",\"type\":\"bytes32\"}],\"name\":\"shaBid\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"startAuction\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"_hashes\",\"type\":\"bytes32[]\"}],\"name\":\"startAuctions\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32[]\",\"name\":\"hashes\",\"type\":\"bytes32[]\"},{\"internalType\":\"bytes32\",\"name\":\"sealedBid\",\"type\":\"bytes32\"}],\"name\":\"startAuctionsAndBid\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"state\",\"outputs\":[{\"internalType\":\"enum Registrar.Mode\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"},{\"internalType\":\"address payable\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transfer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"}],\"name\":\"transferRegistrars\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hash\",\"type\":\"bytes32\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"},{\"internalType\":\"bytes32\",\"name\":\"_salt\",\"type\":\"bytes32\"}],\"name\":\"unsealBid\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"The registrar handles the auction process for the TLD node.\",\"kind\":\"dev\",\"methods\":{\"acceptRegistrarTransfer(bytes32,address,uint256)\":{\"details\":\"Accepts a transfer from a previous registrar; stubbed out here since there      is no previous registrar implementing this interface.\",\"params\":{\"deed\":\"The Deed object for the name being transferred in.\",\"hash\":\"The sha3 hash of the label to transfer.\",\"registrationDate\":\"The date at which the name was originally registered.\"}},\"cancelBid(address,bytes32)\":{\"details\":\"Cancel a bid\",\"params\":{\"seal\":\"The value returned by the shaBid function\"}},\"constructor\":{\"details\":\"Constructs a new Registrar, with the start Date.\",\"params\":{\"_ens\":\"The address of the ENS\",\"_startDate\":\"The start date of the registration process.\"}},\"eraseNode(bytes32[])\":{\"details\":\"Allows anyone to delete the owner and resolver records for a (subdomain of) a      name that is not currently owned in the registrar. If passing, eg, 'foo.bar.eth',      the owner and resolver fields on 'foo.bar.eth' and 'bar.eth' will all be cleared.\",\"params\":{\"labels\":\"A series of label hashes identifying the name to zero out, rooted at the        registrar's root. Must contain at least one element. For instance, to zero         'foo.bar.eth' on a registrar that owns '.eth', pass an array containing        [keccak256('foo'), keccak256('bar')].\"}},\"finalizeAuction(bytes32)\":{\"details\":\"Finalize an auction after the registration date has passed\",\"params\":{\"_hash\":\"The hash of the name the auction is for\"}},\"getAllowedTime(bytes32)\":{\"details\":\"Returns available date for hash The available time from the `registryStarted` for a hash is proportional to its numeric value.\",\"params\":{\"_hash\":\"The hash to start an auction on\"}},\"invalidateName(string)\":{\"details\":\"Submit a name 6 characters long or less. If it has been registered,      the submitter will earn 50% of the deed value.   We are purposefully handicapping the simplified registrar as a way  to force it into being restructured in a few years.\",\"params\":{\"unhashedName\":\"An invalid name to search for in the registry.\"}},\"isAllowed(bytes32,uint256)\":{\"details\":\"Determines if a name is available for registration yet Each name will be assigned a random date in which its auction can be started, from 0 to 8 weeks\",\"params\":{\"_hash\":\"The hash to start an auction on\",\"_timestamp\":\"The timestamp to query about\"}},\"newBid(bytes32)\":{\"details\":\"Submit a new sealed bid on a desired hash in a blind auction Bids are sent by sending a message to the main contract with a hash and an amount. The hash contains information about the bid, including the bidded hash, the bid amount, and a random salt. Bids are not tied to any one auction until they are revealed. The value of the bid itself can be masqueraded by sending more than the value of your actual bid. This is followed by a 48h reveal period. Bids revealed after this period will be burned and the ether unrecoverable. Since this is an auction, it is expected that most public hashes, like known domains and common dictionary words, will have multiple bidders pushing the price up.\",\"params\":{\"sealedBid\":\"A sealedBid, created by the shaBid function\"}},\"releaseDeed(bytes32)\":{\"details\":\"After some time, or if we're no longer the registrar, the owner can release      the name and get their ether back.\",\"params\":{\"_hash\":\"The node to release\"}},\"shaBid(bytes32,address,uint256,bytes32)\":{\"details\":\"Hash the values required for a secret bid\",\"params\":{\"hash\":\"The node corresponding to the desired namehash\",\"salt\":\"A random value to ensure secrecy of the bid\",\"value\":\"The bid amount\"},\"returns\":{\"_0\":\"The hash of the bid values\"}},\"startAuction(bytes32)\":{\"details\":\"Start an auction for an available hash\",\"params\":{\"_hash\":\"The hash to start an auction on\"}},\"startAuctions(bytes32[])\":{\"details\":\"Start multiple auctions for better anonymity Anyone can start an auction by sending an array of hashes that they want to bid for. Arrays are sent so that someone can open up an auction for X dummy hashes when they are only really interested in bidding for one. This will increase the cost for an attacker to simply bid blindly on all new auctions. Dummy auctions that are open but not bid on are closed after a week.\",\"params\":{\"_hashes\":\"An array of hashes, at least one of which you presumably want to bid on\"}},\"startAuctionsAndBid(bytes32[],bytes32)\":{\"details\":\"Start a set of auctions and bid on one of them This method functions identically to calling `startAuctions` followed by `newBid`, but all in one transaction.\",\"params\":{\"hashes\":\"A list of hashes to start auctions on.\",\"sealedBid\":\"A sealed bid for one of the auctions.\"}},\"transfer(bytes32,address)\":{\"details\":\"The owner of a domain may transfer it to someone else at any time.\",\"params\":{\"_hash\":\"The node to transfer\",\"newOwner\":\"The address to transfer ownership to\"}},\"transferRegistrars(bytes32)\":{\"details\":\"Transfers the deed to the current registrar, if different from this one. Used during the upgrade process to a permanent registrar.\",\"params\":{\"_hash\":\"The name hash to transfer.\"}},\"unsealBid(bytes32,uint256,bytes32)\":{\"details\":\"Submit the properties of a bid to reveal them\",\"params\":{\"_hash\":\"The node in the sealedBid\",\"_salt\":\"The sale in the sealedBid\",\"_value\":\"The bid amount in the sealedBid\"}}},\"title\":\"Registrar\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"state(bytes32)\":{\"notice\":\"State transitions for names: Open -> Auction (startAuction) Auction -> Reveal Reveal -> Owned Reveal -> Open (if nobody bid) Owned -> Open (releaseDeed or invalidateName)\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/registry/HashRegistrar.sol\":\"HashRegistrar\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":10000},\"remappings\":[]},\"sources\":{\"contracts/registry/Deed.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity >=0.8.4;\\n\\ninterface Deed {\\n\\n    function setOwner(address payable newOwner) external;\\n    function setRegistrar(address newRegistrar) external;\\n    function setBalance(uint newValue, bool throwOnFailure) external;\\n    function closeDeed(uint refundRatio) external;\\n    function destroyDeed() external;\\n\\n    function owner() external view returns (address);\\n    function previousOwner() external view returns (address);\\n    function value() external view returns (uint);\\n    function creationDate() external view returns (uint);\\n\\n}\\n\",\"keccak256\":\"0xec5a2c9960193524f930bd51c58157e256181ccca7b3c811021064748539b92b\",\"license\":\"MIT\"},\"contracts/registry/DeedImplementation.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity >=0.8.4;\\n\\nimport \\\"./Deed.sol\\\";\\n\\n/**\\n * @title Deed to hold ether in exchange for ownership of a node\\n * @dev The deed can be controlled only by the registrar and can only send ether back to the owner.\\n */\\ncontract DeedImplementation is Deed {\\n\\n    address payable constant burn = payable(address(0xdead));\\n\\n    address payable private _owner;\\n    address private _previousOwner;\\n    address private _registrar;\\n\\n    uint private _creationDate;\\n    uint private _value;\\n\\n    bool active;\\n\\n    event OwnerChanged(address newOwner);\\n    event DeedClosed();\\n\\n    modifier onlyRegistrar {\\n        require(msg.sender == _registrar);\\n        _;\\n    }\\n\\n    modifier onlyActive {\\n        require(active);\\n        _;\\n    }\\n\\n    constructor(address payable initialOwner) public payable {\\n        _owner = initialOwner;\\n        _registrar = msg.sender;\\n        _creationDate = block.timestamp;\\n        active = true;\\n        _value = msg.value;\\n    }\\n\\n    function setOwner(address payable newOwner) external override onlyRegistrar {\\n        require(newOwner != address(0x0));\\n        _previousOwner = _owner;  // This allows contracts to check who sent them the ownership\\n        _owner = newOwner;\\n        emit OwnerChanged(newOwner);\\n    }\\n\\n    function setRegistrar(address newRegistrar) external override onlyRegistrar {\\n        _registrar = newRegistrar;\\n    }\\n\\n    function setBalance(uint newValue, bool throwOnFailure) external override onlyRegistrar onlyActive {\\n        // Check if it has enough balance to set the value\\n        require(_value >= newValue);\\n        _value = newValue;\\n        // Send the difference to the owner\\n        require(_owner.send(address(this).balance - newValue) || !throwOnFailure);\\n    }\\n\\n    /**\\n     * @dev Close a deed and refund a specified fraction of the bid value\\n     *\\n     * @param refundRatio The amount*1/1000 to refund\\n     */\\n    function closeDeed(uint refundRatio) external override onlyRegistrar onlyActive {\\n        active = false;\\n        require(burn.send(((1000 - refundRatio) * address(this).balance)/1000));\\n        emit DeedClosed();\\n        _destroyDeed();\\n    }\\n\\n    /**\\n     * @dev Close a deed and refund a specified fraction of the bid value\\n     */\\n    function destroyDeed() external override {\\n        _destroyDeed();\\n    }\\n\\n    function owner() external view override returns (address) {\\n        return _owner;\\n    }\\n\\n    function previousOwner() external view override returns (address) {\\n        return _previousOwner;\\n    }\\n\\n    function value() external view override returns (uint) {\\n        return _value;\\n    }\\n\\n    function creationDate() external view override returns (uint) {\\n        _creationDate;\\n    }\\n\\n    function _destroyDeed() internal {\\n        require(!active);\\n\\n        // Instead of selfdestruct(owner), invoke owner fallback function to allow\\n        // owner to log an event if desired; but owner should also be aware that\\n        // its fallback function can also be invoked by setBalance\\n        if (_owner.send(address(this).balance)) {\\n            selfdestruct(burn);\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x80af88dd18d8147250fc22597ab48c1124e4eea073794af03098a1e5e4efac57\",\"license\":\"MIT\"},\"contracts/registry/ENS.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity >=0.8.4;\\n\\ninterface ENS {\\n\\n    // Logged when the owner of a node assigns a new owner to a subnode.\\n    event NewOwner(bytes32 indexed node, bytes32 indexed label, address owner);\\n\\n    // Logged when the owner of a node transfers ownership to a new account.\\n    event Transfer(bytes32 indexed node, address owner);\\n\\n    // Logged when the resolver for a node changes.\\n    event NewResolver(bytes32 indexed node, address resolver);\\n\\n    // Logged when the TTL of a node changes\\n    event NewTTL(bytes32 indexed node, uint64 ttl);\\n\\n    // Logged when an operator is added or removed.\\n    event ApprovalForAll(address indexed owner, address indexed operator, bool approved);\\n\\n    function setRecord(bytes32 node, address owner, address resolver, uint64 ttl) external virtual;\\n    function setSubnodeRecord(bytes32 node, bytes32 label, address owner, address resolver, uint64 ttl) external virtual;\\n    function setSubnodeOwner(bytes32 node, bytes32 label, address owner) external virtual returns(bytes32);\\n    function setResolver(bytes32 node, address resolver) external virtual;\\n    function setOwner(bytes32 node, address owner) external virtual;\\n    function setTTL(bytes32 node, uint64 ttl) external virtual;\\n    function setApprovalForAll(address operator, bool approved) external virtual;\\n    function owner(bytes32 node) external virtual view returns (address);\\n    function resolver(bytes32 node) external virtual view returns (address);\\n    function ttl(bytes32 node) external virtual view returns (uint64);\\n    function recordExists(bytes32 node) external virtual view returns (bool);\\n    function isApprovedForAll(address owner, address operator) external virtual view returns (bool);\\n    function setAuctioner() external virtual;\\n    function setTldRecord(bytes32 tld, address owner) external virtual; \\n}\\n\",\"keccak256\":\"0xf1e9cda90d8df8a5b75001b4c038a93151434f6dd1855b01bcd1d35efc1a213c\",\"license\":\"MIT\"},\"contracts/registry/HashRegistrar.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity >=0.8.4;\\n\\n\\n/*\\n\\nTemporary Hash Registrar\\n========================\\n\\nThis is a simplified version of a hash registrar. It is purporsefully limited:\\nnames cannot be six letters or shorter, new auctions will stop after 4 years.\\n\\nThe plan is to test the basic features and then move to a new contract in at most\\n2 years, when some sort of renewal mechanism will be enabled.\\n*/\\n\\n\\nimport \\\"./ENS.sol\\\";\\nimport \\\"./DeedImplementation.sol\\\";\\nimport \\\"./Registrar.sol\\\";\\n\\n/**\\n * @title Registrar\\n * @dev The registrar handles the auction process for the TLD node.\\n */\\ncontract HashRegistrar is Registrar {\\n    ENS public ens;\\n\\n    mapping (bytes32 => Entry) _entries;\\n    mapping (address => mapping (bytes32 => Deed)) public sealedBids;\\n\\n    uint32 constant totalAuctionLength = 5 days;\\n    uint32 constant revealPeriod = 48 hours;\\n    uint32 public constant launchLength = 8 weeks;\\n\\n    uint constant minPrice = 0.01 ether;\\n    uint public registryStarted;\\n\\n    struct Entry {\\n        Deed deed;\\n        uint registrationDate;\\n        uint value;\\n        uint highestBid;\\n    }\\n\\n    modifier inState(bytes32 _hash, Mode _state) {\\n        require(state(_hash) == _state);\\n        _;\\n    }\\n\\n    modifier onlyOwner(bytes32 _hash) {\\n        require(state(_hash) == Mode.Owned && msg.sender == _entries[_hash].deed.owner());\\n        _;\\n    }\\n\\n    modifier registryOpen() {\\n        require(block.timestamp >= registryStarted && block.timestamp <= registryStarted + (365 * 4) * 1 days , 'registryOpen Failed');\\n        _;\\n    }\\n\\n    /**\\n     * @dev Constructs a new Registrar, with the start Date.\\n     *\\n     * @param _ens The address of the ENS\\n     * @param _startDate The start date of the registration process.\\n     */\\n    constructor(ENS _ens,  uint _startDate) public {\\n        ens = _ens;\\n        registryStarted = _startDate > 0 ? _startDate : block.timestamp;\\n        // setAuctioner() method from ENSRegistry\\n        ens.setAuctioner();\\n    }\\n\\n    /**\\n     * @dev Start an auction for an available hash\\n     *\\n     * @param _hash The hash to start an auction on\\n     */\\n    function startAuction(bytes32 _hash) external override {\\n        _startAuction(_hash);\\n    }\\n\\n    /**\\n     * @dev Start multiple auctions for better anonymity\\n     *\\n     * Anyone can start an auction by sending an array of hashes that they want to bid for.\\n     * Arrays are sent so that someone can open up an auction for X dummy hashes when they\\n     * are only really interested in bidding for one. This will increase the cost for an\\n     * attacker to simply bid blindly on all new auctions. Dummy auctions that are\\n     * open but not bid on are closed after a week.\\n     *\\n     * @param _hashes An array of hashes, at least one of which you presumably want to bid on\\n     */\\n    function startAuctions(bytes32[] calldata _hashes) external override{\\n        _startAuctions(_hashes);\\n    }\\n\\n    /**\\n     * @dev Submit a new sealed bid on a desired hash in a blind auction\\n     *\\n     * Bids are sent by sending a message to the main contract with a hash and an amount. The hash\\n     * contains information about the bid, including the bidded hash, the bid amount, and a random\\n     * salt. Bids are not tied to any one auction until they are revealed. The value of the bid\\n     * itself can be masqueraded by sending more than the value of your actual bid. This is\\n     * followed by a 48h reveal period. Bids revealed after this period will be burned and the ether unrecoverable.\\n     * Since this is an auction, it is expected that most public hashes, like known domains and common dictionary\\n     * words, will have multiple bidders pushing the price up.\\n     *\\n     * @param sealedBid A sealedBid, created by the shaBid function\\n     */\\n    function newBid(bytes32 sealedBid) external payable override {\\n        _newBid(sealedBid);\\n    }\\n\\n    /**\\n     * @dev Start a set of auctions and bid on one of them\\n     *\\n     * This method functions identically to calling `startAuctions` followed by `newBid`,\\n     * but all in one transaction.\\n     *\\n     * @param hashes A list of hashes to start auctions on.\\n     * @param sealedBid A sealed bid for one of the auctions.\\n     */\\n    function startAuctionsAndBid(bytes32[] calldata hashes, bytes32 sealedBid) external payable override {\\n        _startAuctions(hashes);\\n        _newBid(sealedBid);\\n    }\\n\\n    /**\\n     * @dev Submit the properties of a bid to reveal them\\n     *\\n     * @param _hash The node in the sealedBid\\n     * @param _value The bid amount in the sealedBid\\n     * @param _salt The sale in the sealedBid\\n     */\\n    function unsealBid(bytes32 _hash, uint _value, bytes32 _salt) external override{\\n        bytes32 seal = shaBid(_hash, msg.sender, _value, _salt);\\n        Deed bid = sealedBids[msg.sender][seal];\\n        require(address(bid) != address(0x0));\\n\\n        sealedBids[msg.sender][seal] = Deed(address(0x0));\\n        Entry storage h = _entries[_hash];\\n        uint value = min(_value, bid.value());\\n        bid.setBalance(value, true);\\n\\n        Mode auctionState = state(_hash);\\n        if (auctionState == Mode.Owned) {\\n            // Too late! Bidder loses their bid. Gets 0.5% back.\\n            bid.closeDeed(5);\\n            emit BidRevealed(_hash, msg.sender, value, 1);\\n        } else if (auctionState != Mode.Reveal) {\\n            // Invalid phase\\n            revert();\\n        } else if (value < minPrice || bid.creationDate() > h.registrationDate - revealPeriod) {\\n            // Bid too low or too late, refund 99.5%\\n            bid.closeDeed(995);\\n            emit BidRevealed(_hash, msg.sender, value, 0);\\n        } else if (value > h.highestBid) {\\n            // New winner\\n            // Cancel the other bid, refund 99.5%\\n            if (address(h.deed) != address(0x0)) {\\n                Deed previousWinner = h.deed;\\n                previousWinner.closeDeed(995);\\n            }\\n\\n            // Set new winner\\n            // Per the rules of a vickery auction, the value becomes the previous highestBid\\n            h.value = h.highestBid;  // will be zero if there's only 1 bidder\\n            h.highestBid = value;\\n            h.deed = bid;\\n            emit BidRevealed(_hash, msg.sender, value, 2);\\n        } else if (value > h.value) {\\n            // Not winner, but affects second place\\n            h.value = value;\\n            bid.closeDeed(995);\\n            emit BidRevealed(_hash, msg.sender, value, 3);\\n        } else {\\n            // Bid doesn't affect auction\\n            bid.closeDeed(995);\\n            emit BidRevealed(_hash, msg.sender, value, 4);\\n        }\\n    }\\n\\n    /**\\n     * @dev Cancel a bid\\n     *\\n     * @param seal The value returned by the shaBid function\\n     */\\n    function cancelBid(address bidder, bytes32 seal) external override{\\n        Deed bid = sealedBids[bidder][seal];\\n        \\n        // If a sole bidder does not `unsealBid` in time, they have a few more days\\n        // where they can call `startAuction` (again) and then `unsealBid` during\\n        // the revealPeriod to get back their bid value.\\n        // For simplicity, they should call `startAuction` within\\n        // 9 days (2 weeks - totalAuctionLength), otherwise their bid will be\\n        // cancellable by anyone.\\n        require(address(bid) != address(0x0) && block.timestamp >= bid.creationDate() + totalAuctionLength + 2 weeks);\\n\\n        // Send the canceller 0.5% of the bid, and burn the rest.\\n        bid.setOwner(payable(msg.sender));\\n        bid.closeDeed(5);\\n        sealedBids[bidder][seal] = Deed(address(0));\\n        emit BidRevealed(seal, bidder, 0, 5);\\n    }\\n\\n    /**\\n     * @dev Finalize an auction after the registration date has passed\\n     *\\n     * @param _hash The hash of the name the auction is for\\n     */\\n    function finalizeAuction(bytes32 _hash) external override onlyOwner(_hash) {\\n        Entry storage h = _entries[_hash];\\n        \\n        // Handles the case when there's only a single bidder (h.value is zero)\\n        h.value = max(h.value, minPrice);\\n        h.deed.setBalance(h.value, true);\\n\\n        // trySetSubnodeOwner(_hash, h.deed.owner());\\n        emit HashRegistered(_hash, h.deed.owner(), h.value, h.registrationDate);\\n        \\n        // trySetSubnodeOwner()\\n        //setTldRecord() \\n        ens.setTldRecord(_hash, h.deed.owner());\\n    }\\n\\n    /**\\n     * @dev The owner of a domain may transfer it to someone else at any time.\\n     *\\n     * @param _hash The node to transfer\\n     * @param newOwner The address to transfer ownership to\\n     */\\n    function transfer(bytes32 _hash, address payable newOwner) external override onlyOwner(_hash) {\\n        require(newOwner != address(0x0));\\n\\n        Entry storage h = _entries[_hash];\\n        h.deed.setOwner(newOwner);\\n        // trySetSubnodeOwner(_hash, newOwner);\\n        ens.setTldRecord(_hash, newOwner);\\n    }\\n\\n    /**\\n     * @dev After some time, or if we're no longer the registrar, the owner can release\\n     *      the name and get their ether back.\\n     *\\n     * @param _hash The node to release\\n     */\\n    function releaseDeed(bytes32 _hash) external override onlyOwner(_hash) {\\n        Entry storage h = _entries[_hash];\\n        Deed deedContract = h.deed;\\n\\n        require(block.timestamp >= h.registrationDate + 365 days);\\n\\n        h.value = 0;\\n        h.highestBid = 0;\\n        h.deed = Deed(address(0));\\n\\n        // _tryEraseSingleNode(_hash);\\n        deedContract.closeDeed(1000);\\n        emit HashReleased(_hash, h.value);        \\n    }\\n\\n    /**\\n     * @dev Submit a name 6 characters long or less. If it has been registered,\\n     *      the submitter will earn 50% of the deed value. \\n     * \\n     * We are purposefully handicapping the simplified registrar as a way \\n     * to force it into being restructured in a few years.\\n     *\\n     * @param unhashedName An invalid name to search for in the registry.\\n     */\\n    function invalidateName(string calldata unhashedName)\\n        external override\\n        inState(keccak256(abi.encode(unhashedName)), Mode.Owned)\\n    {\\n        require(strlen(unhashedName) <= 6);\\n        bytes32 hash = keccak256(abi.encode(unhashedName));\\n\\n        Entry storage h = _entries[hash];\\n\\n        // _tryEraseSingleNode(hash);\\n\\n        if (address(h.deed) != address(0x0)) {\\n            // Reward the discoverer with 50% of the deed\\n            // The previous owner gets 50%\\n            h.value = max(h.value, minPrice);\\n            h.deed.setBalance(h.value/2, false);\\n            h.deed.setOwner(payable(msg.sender));\\n            h.deed.closeDeed(1000);\\n        }\\n\\n        emit HashInvalidated(hash, unhashedName, h.value, h.registrationDate);\\n\\n        h.value = 0;\\n        h.highestBid = 0;\\n        h.deed = Deed(address(0));\\n    }\\n\\n    /**\\n     * @dev Allows anyone to delete the owner and resolver records for a (subdomain of) a\\n     *      name that is not currently owned in the registrar. If passing, eg, 'foo.bar.eth',\\n     *      the owner and resolver fields on 'foo.bar.eth' and 'bar.eth' will all be cleared.\\n     *\\n     * @param labels A series of label hashes identifying the name to zero out, rooted at the\\n     *        registrar's root. Must contain at least one element. For instance, to zero \\n     *        'foo.bar.eth' on a registrar that owns '.eth', pass an array containing\\n     *        [keccak256('foo'), keccak256('bar')].\\n     */\\n    function eraseNode(bytes32[] calldata labels) external override {\\n        require(labels.length != 0);\\n        require(state(labels[labels.length - 1]) != Mode.Owned);\\n\\n        // _eraseNodeHierarchy(labels.length - 1, labels);\\n    }\\n\\n    /**\\n     * @dev Transfers the deed to the current registrar, if different from this one.\\n     *\\n     * Used during the upgrade process to a permanent registrar.\\n     *\\n     * @param _hash The name hash to transfer.\\n     */\\n    function transferRegistrars(bytes32 _hash) external override onlyOwner(_hash) {\\n        // address registrar = ens.owner(address(0));\\n        // require(registrar != address(this));\\n\\n        // // Migrate the deed\\n        // Entry storage h = _entries[_hash];\\n        // h.deed.setRegistrar(registrar);\\n\\n        // // Call the new registrar to accept the transfer\\n        // Registrar(registrar).acceptRegistrarTransfer(_hash, h.deed, h.registrationDate);\\n\\n        // // Zero out the Entry\\n        // h.deed = Deed(address(0));\\n        // h.registrationDate = 0;\\n        // h.value = 0;\\n        // h.highestBid = 0;\\n    }\\n\\n    /**\\n     * @dev Accepts a transfer from a previous registrar; stubbed out here since there\\n     *      is no previous registrar implementing this interface.\\n     *\\n     * @param hash The sha3 hash of the label to transfer.\\n     * @param deed The Deed object for the name being transferred in.\\n     * @param registrationDate The date at which the name was originally registered.\\n     */\\n    function acceptRegistrarTransfer(bytes32 hash, Deed deed, uint registrationDate) external override {\\n        hash; deed; registrationDate; // Don't warn about unused variables\\n    }\\n\\n    function entries(bytes32 _hash) external view override returns (Mode, address, uint, uint, uint) {\\n        Entry storage h = _entries[_hash];\\n        return (state(_hash), address(h.deed), h.registrationDate, h.value, h.highestBid);\\n    }\\n\\n    /**  State transitions for names:\\n            Open -> Auction (startAuction)\\n            Auction -> Reveal\\n            Reveal -> Owned\\n            Reveal -> Open (if nobody bid)\\n            Owned -> Open (releaseDeed or invalidateName)\\n    */\\n    function state(bytes32 _hash) public view override returns (Mode) {\\n        Entry storage entry = _entries[_hash];\\n\\n        if (!isAllowed(_hash, block.timestamp)) {\\n            return Mode.NotYetAvailable;\\n        } else if (block.timestamp < entry.registrationDate) {\\n            if (block.timestamp < entry.registrationDate - revealPeriod) {\\n                return Mode.Auction;\\n            } else {\\n                return Mode.Reveal;\\n            }\\n        } else {\\n            if (entry.highestBid == 0) {\\n                return Mode.Open;\\n            } else {\\n                return Mode.Owned;\\n            }\\n        }\\n    }\\n\\n    /**\\n     * @dev Determines if a name is available for registration yet\\n     *\\n     * Each name will be assigned a random date in which its auction\\n     * can be started, from 0 to 8 weeks\\n     *\\n     * @param _hash The hash to start an auction on\\n     * @param _timestamp The timestamp to query about\\n     */\\n    function isAllowed(bytes32 _hash, uint _timestamp) public view returns (bool allowed) {\\n        return _timestamp > getAllowedTime(_hash);\\n    }\\n\\n    /**\\n     * @dev Returns available date for hash\\n     *\\n     * The available time from the `registryStarted` for a hash is proportional\\n     * to its numeric value.\\n     *\\n     * @param _hash The hash to start an auction on\\n     */\\n    function getAllowedTime(bytes32 _hash) public view returns (uint) {\\n        return registryStarted + ((launchLength * (uint(_hash) >> 128)) >> 128);\\n        // Right shift operator: a >> b == a / 2**b\\n    }\\n\\n    /**\\n     * @dev Hash the values required for a secret bid\\n     *\\n     * @param hash The node corresponding to the desired namehash\\n     * @param value The bid amount\\n     * @param salt A random value to ensure secrecy of the bid\\n     * @return The hash of the bid values\\n     */\\n    function shaBid(bytes32 hash, address owner, uint value, bytes32 salt) public pure returns (bytes32) {\\n        return keccak256(abi.encodePacked(hash, owner, value, salt));\\n    }\\n\\n\\n    function _startAuction(bytes32 _hash) internal registryOpen() {\\n        Mode mode = state(_hash);\\n        if (mode == Mode.Auction) return;\\n        require(mode == Mode.Open, 'failed Mode');\\n\\n        Entry storage newAuction = _entries[_hash];\\n        newAuction.registrationDate = block.timestamp + totalAuctionLength;\\n        newAuction.value = 0;\\n        newAuction.highestBid = 0;\\n        emit AuctionStarted(_hash, newAuction.registrationDate);\\n    }\\n\\n    function _startAuctions(bytes32[] memory _hashes) internal {\\n        for (uint i = 0; i < _hashes.length; i ++) {\\n            _startAuction(_hashes[i]);\\n        }\\n    }\\n\\n    function _newBid(bytes32 sealedBid) internal {\\n        require(address(sealedBids[msg.sender][sealedBid]) == address(0x0));\\n        require(msg.value >= minPrice);\\n\\n        // Creates a new hash contract with the owner\\n        Deed bid = (new DeedImplementation){value: msg.value}(payable(msg.sender));\\n        sealedBids[msg.sender][sealedBid] = bid;\\n        emit NewBid(sealedBid, msg.sender, msg.value);\\n    }\\n\\n    /**\\n     * @dev Returns the maximum of two unsigned integers\\n     *\\n     * @param a A number to compare\\n     * @param b A number to compare\\n     * @return The maximum of two unsigned integers\\n     */\\n    function max(uint a, uint b) internal pure returns (uint) {\\n        if (a > b)\\n            return a;\\n        else\\n            return b;\\n    }\\n\\n    /**\\n     * @dev Returns the minimum of two unsigned integers\\n     *\\n     * @param a A number to compare\\n     * @param b A number to compare\\n     * @return The minimum of two unsigned integers\\n     */\\n    function min(uint a, uint b) internal pure returns (uint) {\\n        if (a < b)\\n            return a;\\n        else\\n            return b;\\n    }\\n\\n    /**\\n     * @dev Returns the length of a given string\\n     *\\n     * @param s The string to measure the length of\\n     * @return The length of the input string\\n     */\\n    function strlen(string memory s) internal pure returns (uint) {\\n        s; // Don't warn about unused variables\\n        // Starting here means the LSB will be the byte we care about\\n        uint ptr;\\n        uint end;\\n        assembly {\\n            ptr := add(s, 1)\\n            end := add(mload(s), ptr)\\n        }\\n        uint len = 0;\\n        for (len; ptr < end; len++) {\\n            uint8 b;\\n            assembly { b := and(mload(ptr), 0xFF) }\\n            if (b < 0x80) {\\n                ptr += 1;\\n            } else if (b < 0xE0) {\\n                ptr += 2;\\n            } else if (b < 0xF0) {\\n                ptr += 3;\\n            } else if (b < 0xF8) {\\n                ptr += 4;\\n            } else if (b < 0xFC) {\\n                ptr += 5;\\n            } else {\\n                ptr += 6;\\n            }\\n        }\\n        return len;\\n    }\\n\\n}\\n\",\"keccak256\":\"0x73b37fc2bbdc6e8ec6f3269210bd0d1569081b5641c34f783f4a4a15862c3518\",\"license\":\"MIT\"},\"contracts/registry/Registrar.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity >=0.8.4;\\n\\nimport \\\"./Deed.sol\\\";\\n\\ninterface Registrar {\\n\\n    enum Mode { Open, Auction, Owned, Forbidden, Reveal, NotYetAvailable }\\n\\n    event AuctionStarted(bytes32 indexed hash, uint registrationDate);\\n    event NewBid(bytes32 indexed hash, address indexed bidder, uint deposit);\\n    event BidRevealed(bytes32 indexed hash, address indexed owner, uint value, uint8 status);\\n    event HashRegistered(bytes32 indexed hash, address indexed owner, uint value, uint registrationDate);\\n    event HashReleased(bytes32 indexed hash, uint value);\\n    event HashInvalidated(bytes32 indexed hash, string indexed name, uint value, uint registrationDate);\\n\\n    function state(bytes32 _hash) external view returns (Mode);\\n    function startAuction(bytes32 _hash) external;\\n    function startAuctions(bytes32[] calldata _hashes) external;\\n    function newBid(bytes32 sealedBid) external payable;\\n    function startAuctionsAndBid(bytes32[] calldata hashes, bytes32 sealedBid) external payable;\\n    function unsealBid(bytes32 _hash, uint _value, bytes32 _salt) external;\\n    function cancelBid(address bidder, bytes32 seal) external;\\n    function finalizeAuction(bytes32 _hash) external;\\n    function transfer(bytes32 _hash, address payable newOwner) external;\\n    function releaseDeed(bytes32 _hash) external;\\n    function invalidateName(string calldata unhashedName) external;\\n    function eraseNode(bytes32[] calldata labels) external;\\n    function transferRegistrars(bytes32 _hash) external;\\n    function acceptRegistrarTransfer(bytes32 hash, Deed deed, uint registrationDate) external;\\n    function entries(bytes32 _hash) external view returns (Mode, address, uint, uint, uint);\\n}\\n\",\"keccak256\":\"0x7b9619993353d273139228637834413c495e80a287ccd3270d83ce5c3bb9d4da\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60806040523480156200001157600080fd5b5060405162002e1838038062002e188339810160408190526200003491620000c4565b600080546001600160a01b0319166001600160a01b038416179055806200005c57426200005e565b805b6003556000805460408051633a541bbb60e11b815290516001600160a01b03909216926374a837769260048084019382900301818387803b158015620000a357600080fd5b505af1158015620000b8573d6000803e3d6000fd5b505050505050620000fe565b60008060408385031215620000d7578182fd5b82516001600160a01b0381168114620000ee578283fd5b6020939093015192949293505050565b612d0a806200010e6000396000f3fe608060405260043610620001935760003560e01c806379ce9fac11620000db578063ce92dced1162000089578063ea9e107a1162000060578063ea9e107a1462000521578063ede8acdb1462000545578063febefd61146200056a57600080fd5b8063ce92dced14620004c0578063de10f04b14620004d7578063e27fe50f14620004fc57600080fd5b8063983b94fb11620000be578063983b94fb14620004545780639c67f06f1462000479578063ae1a0b0c146200049157600080fd5b806379ce9fac14620003f957806393503337146200041e57600080fd5b8063267b692211620001455780635ddae283116200011c5780635ddae283146200035b5780635e431709146200038057806361d585da14620003c557600080fd5b8063267b692214620002c35780633f15457f14620002fb57806347872b42146200033657600080fd5b806315f73331116200017a57806315f7333114620001f757806322ec1244146200021c5780632525f5c1146200029e57600080fd5b80630230a07c146200019857806313c89a8f14620001bf575b600080fd5b348015620001a557600080fd5b50620001bd620001b7366004620022cd565b62000581565b005b348015620001cc57600080fd5b50620001e4620001de366004620022cd565b620007aa565b6040519081526020015b60405180910390f35b3480156200020457600080fd5b50620001bd62000216366004620023df565b620007d6565b3480156200022957600080fd5b50620001e46200023b36600462002318565b6040805160208082019690965260609490941b7fffffffffffffffffffffffffffffffffffffffff000000000000000000000000168482015260548401929092526074808401919091528151808403909101815260949092019052805191012090565b348015620002ab57600080fd5b50620001bd620002bd3660046200220d565b62000b4d565b348015620002d057600080fd5b50620002e8620002e2366004620022cd565b62000d98565b604051620001ee959493929190620024ad565b3480156200030857600080fd5b506000546200031d906001600160a01b031681565b6040516001600160a01b039091168152602001620001ee565b3480156200034357600080fd5b50620001bd62000355366004620023b3565b62000de6565b3480156200036857600080fd5b50620001bd6200037a366004620022cd565b620014eb565b3480156200038d57600080fd5b506200031d6200039f3660046200220d565b60026020908152600092835260408084209091529082529020546001600160a01b031681565b348015620003d257600080fd5b50620003ea620003e4366004620022cd565b620015e9565b604051620001ee91906200249d565b3480156200040657600080fd5b50620001bd62000418366004620022e6565b62001669565b3480156200042b57600080fd5b50620004436200043d36600462002391565b6200187f565b6040519015158152602001620001ee565b3480156200046157600080fd5b50620001bd62000473366004620022cd565b62001895565b3480156200048657600080fd5b50620001e460035481565b3480156200049e57600080fd5b50620004aa6249d40081565b60405163ffffffff9091168152602001620001ee565b620001bd620004d1366004620022cd565b62001c4d565b348015620004e457600080fd5b50620001bd620004f63660046200223b565b62001c5b565b3480156200050957600080fd5b50620001bd6200051b3660046200223b565b62001cd2565b3480156200052e57600080fd5b50620001bd6200054036600462002357565b505050565b3480156200055257600080fd5b50620001bd62000564366004620022cd565b62001d10565b620001bd6200057b3660046200227f565b62001d1b565b8060026200058f82620015e9565b6005811115620005af57634e487b7160e01b600052602160045260246000fd5b1480156200067157506000818152600160209081526040918290205482517f8da5cb5b00000000000000000000000000000000000000000000000000000000815292516001600160a01b0390911692638da5cb5b926004808301939192829003018186803b1580156200062157600080fd5b505afa15801562000636573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906200065c9190620021e7565b6001600160a01b0316336001600160a01b0316145b6200067b57600080fd5b600082815260016020819052604090912080549181015490916001600160a01b031690620006ae906301e1338062002535565b421015620006bb57600080fd5b600060028301819055600383015581547fffffffffffffffffffffffff00000000000000000000000000000000000000001682556040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e860048201526001600160a01b0382169063bbe4277190602401600060405180830381600087803b1580156200074c57600080fd5b505af115801562000761573d6000803e3d6000fd5b50505050837f292b79b9246fa2c8e77d3fe195b251f9cb839d7d038e667c069ee7708c631e1683600201546040516200079c91815260200190565b60405180910390a250505050565b60006080620007bf83821c6249d40062002571565b901c600354620007d0919062002535565b92915050565b8181604051602001620007eb929190620024e8565b604080517fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe081840301815291905280516020909101206002806200082f83620015e9565b60058111156200084f57634e487b7160e01b600052602160045260246000fd5b146200085a57600080fd5b60066200089d85858080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525062001d6492505050565b1115620008a957600080fd5b60008484604051602001620008c0929190620024e8565b604080517fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe081840301815291815281516020928301206000818152600190935291208054919250906001600160a01b03161562000ab6576200092e8160020154662386f26fc1000062001e37565b600280830182905582546001600160a01b03169163b0c8097291620009539162002550565b6040517fffffffff0000000000000000000000000000000000000000000000000000000060e084901b168152600481019190915260006024820152604401600060405180830381600087803b158015620009ac57600080fd5b505af1158015620009c1573d6000803e3d6000fd5b505082546040517f13af40350000000000000000000000000000000000000000000000000000000081523360048201526001600160a01b0390911692506313af40359150602401600060405180830381600087803b15801562000a2357600080fd5b505af115801562000a38573d6000803e3d6000fd5b505082546040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e860048201526001600160a01b03909116925063bbe427719150602401600060405180830381600087803b15801562000a9c57600080fd5b505af115801562000ab1573d6000803e3d6000fd5b505050505b858560405162000ac89291906200248d565b604080519182900382206002840154600185015490845260208401529184917f1f9c649fe47e58bb60f4e52f0d90e4c47a526c9f90c5113df842c025970b66ad910160405180910390a3600060028201819055600382015580547fffffffffffffffffffffffff00000000000000000000000000000000000000001690555050505050565b6001600160a01b03808316600090815260026020908152604080832085845290915290205416801580159062000c1c57506206978063ffffffff16816001600160a01b03166305b344106040518163ffffffff1660e01b815260040160206040518083038186803b15801562000bc257600080fd5b505afa15801562000bd7573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062000bfd919062002451565b62000c09919062002535565b62000c18906212750062002535565b4210155b62000c2657600080fd5b6040517f13af40350000000000000000000000000000000000000000000000000000000081523360048201526001600160a01b038216906313af403590602401600060405180830381600087803b15801562000c8157600080fd5b505af115801562000c96573d6000803e3d6000fd5b50506040517fbbe42771000000000000000000000000000000000000000000000000000000008152600560048201526001600160a01b038416925063bbe427719150602401600060405180830381600087803b15801562000cf657600080fd5b505af115801562000d0b573d6000803e3d6000fd5b505050506001600160a01b0383166000818152600260209081526040808320868452825280832080547fffffffffffffffffffffffff0000000000000000000000000000000000000000169055805192835260059183019190915284917f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e7910160405180910390a3505050565b6000818152600160205260408120819081908190819062000db987620015e9565b815460018301546002840154600390940154929a6001600160a01b03909216995097509195509350915050565b60408051602080820186905233606081901b7fffffffffffffffffffffffffffffffffffffffff00000000000000000000000016838501526054830186905260748084018690528451808503909101815260949093018452825192820192909220600092835260028252838320818452909152919020546001600160a01b03168062000e7157600080fd5b336000908152600260209081526040808320858452825280832080547fffffffffffffffffffffffff00000000000000000000000000000000000000001690558783526001825280832081517f3fa4f245000000000000000000000000000000000000000000000000000000008152915190939262000f5a9289926001600160a01b03881692633fa4f2459260048082019391829003018186803b15801562000f1957600080fd5b505afa15801562000f2e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062000f54919062002451565b62001e52565b6040517fb0c8097200000000000000000000000000000000000000000000000000000000815260048101829052600160248201529091506001600160a01b0384169063b0c8097290604401600060405180830381600087803b15801562000fc057600080fd5b505af115801562000fd5573d6000803e3d6000fd5b50505050600062000fe688620015e9565b905060028160058111156200100b57634e487b7160e01b600052602160045260246000fd5b1415620010cb576040517fbbe42771000000000000000000000000000000000000000000000000000000008152600560048201526001600160a01b0385169063bbe4277190602401600060405180830381600087803b1580156200106e57600080fd5b505af115801562001083573d6000803e3d6000fd5b505060408051858152600160208201523393508b92507f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e791015b60405180910390a3620014e1565b6004816005811115620010ee57634e487b7160e01b600052602160045260246000fd5b14620010f957600080fd5b662386f26fc1000082108062001196575060018301546200111f906202a30090620025b1565b846001600160a01b03166305b344106040518163ffffffff1660e01b815260040160206040518083038186803b1580156200115957600080fd5b505afa1580156200116e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062001194919062002451565b115b156200124d576040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e360048201526001600160a01b0385169063bbe4277190602401600060405180830381600087803b158015620011f957600080fd5b505af11580156200120e573d6000803e3d6000fd5b505060408051858152600060208201523393508b92507f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e79101620010bd565b8260030154821115620013685782546001600160a01b031615620012e85782546040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e360048201526001600160a01b0390911690819063bbe4277190602401600060405180830381600087803b158015620012cd57600080fd5b505af1158015620012e2573d6000803e3d6000fd5b50505050505b6003830180546002808601919091559083905583547fffffffffffffffffffffffff0000000000000000000000000000000000000000166001600160a01b03861617845560408051848152602081019290925233918a917f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e79101620010bd565b82600201548211156200142d57600283018290556040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e360048201526001600160a01b0385169063bbe4277190602401600060405180830381600087803b158015620013d957600080fd5b505af1158015620013ee573d6000803e3d6000fd5b505060408051858152600360208201523393508b92507f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e79101620010bd565b6040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e360048201526001600160a01b0385169063bbe4277190602401600060405180830381600087803b1580156200148a57600080fd5b505af11580156200149f573d6000803e3d6000fd5b505060408051858152600460208201523393508b92507f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e7910160405180910390a35b5050505050505050565b806002620014f982620015e9565b60058111156200151957634e487b7160e01b600052602160045260246000fd5b148015620015db57506000818152600160209081526040918290205482517f8da5cb5b00000000000000000000000000000000000000000000000000000000815292516001600160a01b0390911692638da5cb5b926004808301939192829003018186803b1580156200158b57600080fd5b505afa158015620015a0573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620015c69190620021e7565b6001600160a01b0316336001600160a01b0316145b620015e557600080fd5b5050565b60008181526001602052604081206200160383426200187f565b620016115750600592915050565b80600101544210156200164d57600181015462001633906202a30090620025b1565b421015620016445750600192915050565b50600492915050565b6003810154620016605750600092915050565b50600292915050565b8160026200167782620015e9565b60058111156200169757634e487b7160e01b600052602160045260246000fd5b1480156200175957506000818152600160209081526040918290205482517f8da5cb5b00000000000000000000000000000000000000000000000000000000815292516001600160a01b0390911692638da5cb5b926004808301939192829003018186803b1580156200170957600080fd5b505afa1580156200171e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620017449190620021e7565b6001600160a01b0316336001600160a01b0316145b6200176357600080fd5b6001600160a01b0382166200177757600080fd5b60008381526001602052604090819020805491517f13af40350000000000000000000000000000000000000000000000000000000081526001600160a01b038581166004830152919291909116906313af403590602401600060405180830381600087803b158015620017e957600080fd5b505af1158015620017fe573d6000803e3d6000fd5b50506000546040517f60aa6d34000000000000000000000000000000000000000000000000000000008152600481018890526001600160a01b03878116602483015290911692506360aa6d349150604401600060405180830381600087803b1580156200186a57600080fd5b505af1158015620014e1573d6000803e3d6000fd5b60006200188c83620007aa565b90911192915050565b806002620018a382620015e9565b6005811115620018c357634e487b7160e01b600052602160045260246000fd5b1480156200198557506000818152600160209081526040918290205482517f8da5cb5b00000000000000000000000000000000000000000000000000000000815292516001600160a01b0390911692638da5cb5b926004808301939192829003018186803b1580156200193557600080fd5b505afa1580156200194a573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620019709190620021e7565b6001600160a01b0316336001600160a01b0316145b6200198f57600080fd5b60008281526001602052604090206002810154620019b590662386f26fc1000062001e37565b6002820181905581546040517fb0c809720000000000000000000000000000000000000000000000000000000081526004810192909252600160248301526001600160a01b03169063b0c8097290604401600060405180830381600087803b15801562001a2157600080fd5b505af115801562001a36573d6000803e3d6000fd5b50508254604080517f8da5cb5b00000000000000000000000000000000000000000000000000000000815290516001600160a01b039092169350638da5cb5b9250600480820192602092909190829003018186803b15801562001a9857600080fd5b505afa15801562001aad573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062001ad39190620021e7565b6001600160a01b0316837f0f0c27adfd84b60b6f456b0e87cdccb1e5fb9603991588d87fa99f5b6b61e6708360020154846001015460405162001b20929190918252602082015260400190565b60405180910390a36000548154604080517f8da5cb5b00000000000000000000000000000000000000000000000000000000815290516001600160a01b03938416936360aa6d34938893911691638da5cb5b91600480820192602092909190829003018186803b15801562001b9457600080fd5b505afa15801562001ba9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062001bcf9190620021e7565b6040517fffffffff0000000000000000000000000000000000000000000000000000000060e085901b16815260048101929092526001600160a01b03166024820152604401600060405180830381600087803b15801562001c2f57600080fd5b505af115801562001c44573d6000803e3d6000fd5b50505050505050565b62001c588162001e65565b50565b8062001c6657600080fd5b600262001ca6838362001c7b600182620025b1565b81811062001c9957634e487b7160e01b600052603260045260246000fd5b90506020020135620015e9565b600581111562001cc657634e487b7160e01b600052602160045260246000fd5b1415620015e557600080fd5b620015e582828080602002602001604051908101604052809392919081815260200183836020028082843760009201919091525062001f7192505050565b62001c588162001fc6565b62001d5983838080602002602001604051908101604052809392919081815260200183836020028082843760009201919091525062001f7192505050565b620005408162001e65565b8051600090600183810191840101825b8183101562001e2f57825160ff16608081101562001da15762001d9960018562002535565b935062001e19565b60e08160ff16101562001dbb5762001d9960028562002535565b60f08160ff16101562001dd55762001d9960038562002535565b60f88160ff16101562001def5762001d9960048562002535565b60fc8160ff16101562001e095762001d9960058562002535565b62001e1660068562002535565b93505b508062001e2681620025cb565b91505062001d74565b949350505050565b60008183111562001e4a575081620007d0565b5080620007d0565b60008183101562001e4a575081620007d0565b3360009081526002602090815260408083208484529091529020546001600160a01b03161562001e9457600080fd5b662386f26fc1000034101562001ea957600080fd5b6000343360405162001ebb906200218c565b6001600160a01b0390911681526020016040518091039082f090508015801562001ee9573d6000803e3d6000fd5b5033600081815260026020908152604080832087845282529182902080547fffffffffffffffffffffffff0000000000000000000000000000000000000000166001600160a01b0386161790559051348152929350909184917fb556ff269c1b6714f432c36431e2041d28436a73b6c3f19c021827bbdc6bfc29910160405180910390a35050565b60005b8151811015620015e55762001fb182828151811062001fa357634e487b7160e01b600052603260045260246000fd5b602002602001015162001fc6565b8062001fbd81620025cb565b91505062001f74565b600354421015801562001feb575060035462001fe790630784ce0062002535565b4211155b62002057576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601360248201527f72656769737472794f70656e204661696c65640000000000000000000000000060448201526064015b60405180910390fd5b60006200206482620015e9565b905060018160058111156200208957634e487b7160e01b600052602160045260246000fd5b141562002094575050565b6000816005811115620020b757634e487b7160e01b600052602160045260246000fd5b1462002120576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600b60248201527f6661696c6564204d6f646500000000000000000000000000000000000000000060448201526064016200204e565b60008281526001602052604090206200213d620697804262002535565b60018201819055600060028301819055600383015560405190815283907f87e97e825a1d1fa0c54e1d36c7506c1dea8b1efd451fe68b000cf96f7cf400039060200160405180910390a2505050565b6106a1806200263483390190565b60008083601f840112620021ac578182fd5b50813567ffffffffffffffff811115620021c4578182fd5b6020830191508360208260051b8501011115620021e057600080fd5b9250929050565b600060208284031215620021f9578081fd5b815162002206816200261d565b9392505050565b6000806040838503121562002220578081fd5b82356200222d816200261d565b946020939093013593505050565b600080602083850312156200224e578182fd5b823567ffffffffffffffff81111562002265578283fd5b62002273858286016200219a565b90969095509350505050565b60008060006040848603121562002294578081fd5b833567ffffffffffffffff811115620022ab578182fd5b620022b9868287016200219a565b909790965060209590950135949350505050565b600060208284031215620022df578081fd5b5035919050565b60008060408385031215620022f9578182fd5b8235915060208301356200230d816200261d565b809150509250929050565b600080600080608085870312156200232e578081fd5b84359350602085013562002342816200261d565b93969395505050506040820135916060013590565b6000806000606084860312156200236c578283fd5b83359250602084013562002380816200261d565b929592945050506040919091013590565b60008060408385031215620023a4578182fd5b50508035926020909101359150565b600080600060608486031215620023c8578283fd5b505081359360208301359350604090920135919050565b60008060208385031215620023f2578182fd5b823567ffffffffffffffff808211156200240a578384fd5b818501915085601f8301126200241e578384fd5b8135818111156200242d578485fd5b8660208285010111156200243f578485fd5b60209290920196919550909350505050565b60006020828403121562002463578081fd5b5051919050565b600681106200248957634e487b7160e01b600052602160045260246000fd5b9052565b8183823760009101908152919050565b60208101620007d082846200246a565b60a08101620024bd82886200246a565b6001600160a01b03861660208301528460408301528360608301528260808301529695505050505050565b60208152816020820152818360408301376000818301604090810191909152601f9092017fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0160101919050565b600082198211156200254b576200254b62002607565b500190565b6000826200256c57634e487b7160e01b81526012600452602481fd5b500490565b6000817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0483118215151615620025ac57620025ac62002607565b500290565b600082821015620025c657620025c662002607565b500390565b60007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff82141562002600576200260062002607565b5060010190565b634e487b7160e01b600052601160045260246000fd5b6001600160a01b038116811462001c5857600080fdfe60806040526040516106a13803806106a183398101604081905261002291610065565b600080546001600160a01b039092166001600160a01b03199283161790556002805490911633179055426003556005805460ff1916600117905534600455610093565b600060208284031215610076578081fd5b81516001600160a01b038116811461008c578182fd5b9392505050565b6105ff806100a26000396000f3fe608060405234801561001057600080fd5b50600436106100a35760003560e01c8063674f220f11610076578063b0c809721161005b578063b0c8097214610140578063bbe4277114610153578063faab9d391461016657600080fd5b8063674f220f146100e35780638da5cb5b1461012257600080fd5b806305b34410146100a85780630b5ab3d5146100be57806313af4035146100c85780633fa4f245146100db575b600080fd5b60005b6040519081526020015b60405180910390f35b6100c6610179565b005b6100c66100d636600461047d565b610183565b6004546100ab565b60015473ffffffffffffffffffffffffffffffffffffffff165b60405173ffffffffffffffffffffffffffffffffffffffff90911681526020016100b5565b60005473ffffffffffffffffffffffffffffffffffffffff166100fd565b6100c661014e3660046104b8565b610251565b6100c66101613660046104a0565b6102eb565b6100c661017436600461047d565b6103c2565b61018161042d565b565b60025473ffffffffffffffffffffffffffffffffffffffff1633146101a757600080fd5b73ffffffffffffffffffffffffffffffffffffffff81166101c757600080fd5b600080546001805473ffffffffffffffffffffffffffffffffffffffff8084167fffffffffffffffffffffffff0000000000000000000000000000000000000000928316179092559091169083169081179091556040519081527fa2ea9883a321a3e97b8266c2b078bfeec6d50c711ed71f874a90d500ae2eaf369060200160405180910390a150565b60025473ffffffffffffffffffffffffffffffffffffffff16331461027557600080fd5b60055460ff1661028457600080fd5b81600454101561029357600080fd5b600482905560005473ffffffffffffffffffffffffffffffffffffffff166108fc6102be8447610561565b6040518115909202916000818181858888f19350505050806102de575080155b6102e757600080fd5b5050565b60025473ffffffffffffffffffffffffffffffffffffffff16331461030f57600080fd5b60055460ff1661031e57600080fd5b600580547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0016905561dead6108fc6103e84761035a8583610561565b6103649190610524565b61036e91906104eb565b6040518115909202916000818181858888f1935050505061038e57600080fd5b6040517fbb2ce2f51803bba16bc85282b47deeea9a5c6223eabea1077be696b3f265cf1390600090a16103bf61042d565b50565b60025473ffffffffffffffffffffffffffffffffffffffff1633146103e657600080fd5b600280547fffffffffffffffffffffffff00000000000000000000000000000000000000001673ffffffffffffffffffffffffffffffffffffffff92909216919091179055565b60055460ff161561043d57600080fd5b6000805460405173ffffffffffffffffffffffffffffffffffffffff909116914780156108fc02929091818181858888f19350505050156101815761deadff5b60006020828403121561048e578081fd5b8135610499816105a7565b9392505050565b6000602082840312156104b1578081fd5b5035919050565b600080604083850312156104ca578081fd5b82359150602083013580151581146104e0578182fd5b809150509250929050565b60008261051f577f4e487b710000000000000000000000000000000000000000000000000000000081526012600452602481fd5b500490565b6000817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff048311821515161561055c5761055c610578565b500290565b60008282101561057357610573610578565b500390565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b73ffffffffffffffffffffffffffffffffffffffff811681146103bf57600080fdfea26469706673582212208a99727db58f74a16e8282a3853a5a14c00f9ffd81a0a7832f329b0b4f09542864736f6c63430008040033a2646970667358221220a803fa29f3c91e963057edfd417b5ce367189da708700e60603b6812e370e7ae64736f6c63430008040033",
+  "deployedBytecode": "0x608060405260043610620001935760003560e01c806379ce9fac11620000db578063ce92dced1162000089578063ea9e107a1162000060578063ea9e107a1462000521578063ede8acdb1462000545578063febefd61146200056a57600080fd5b8063ce92dced14620004c0578063de10f04b14620004d7578063e27fe50f14620004fc57600080fd5b8063983b94fb11620000be578063983b94fb14620004545780639c67f06f1462000479578063ae1a0b0c146200049157600080fd5b806379ce9fac14620003f957806393503337146200041e57600080fd5b8063267b692211620001455780635ddae283116200011c5780635ddae283146200035b5780635e431709146200038057806361d585da14620003c557600080fd5b8063267b692214620002c35780633f15457f14620002fb57806347872b42146200033657600080fd5b806315f73331116200017a57806315f7333114620001f757806322ec1244146200021c5780632525f5c1146200029e57600080fd5b80630230a07c146200019857806313c89a8f14620001bf575b600080fd5b348015620001a557600080fd5b50620001bd620001b7366004620022cd565b62000581565b005b348015620001cc57600080fd5b50620001e4620001de366004620022cd565b620007aa565b6040519081526020015b60405180910390f35b3480156200020457600080fd5b50620001bd62000216366004620023df565b620007d6565b3480156200022957600080fd5b50620001e46200023b36600462002318565b6040805160208082019690965260609490941b7fffffffffffffffffffffffffffffffffffffffff000000000000000000000000168482015260548401929092526074808401919091528151808403909101815260949092019052805191012090565b348015620002ab57600080fd5b50620001bd620002bd3660046200220d565b62000b4d565b348015620002d057600080fd5b50620002e8620002e2366004620022cd565b62000d98565b604051620001ee959493929190620024ad565b3480156200030857600080fd5b506000546200031d906001600160a01b031681565b6040516001600160a01b039091168152602001620001ee565b3480156200034357600080fd5b50620001bd62000355366004620023b3565b62000de6565b3480156200036857600080fd5b50620001bd6200037a366004620022cd565b620014eb565b3480156200038d57600080fd5b506200031d6200039f3660046200220d565b60026020908152600092835260408084209091529082529020546001600160a01b031681565b348015620003d257600080fd5b50620003ea620003e4366004620022cd565b620015e9565b604051620001ee91906200249d565b3480156200040657600080fd5b50620001bd62000418366004620022e6565b62001669565b3480156200042b57600080fd5b50620004436200043d36600462002391565b6200187f565b6040519015158152602001620001ee565b3480156200046157600080fd5b50620001bd62000473366004620022cd565b62001895565b3480156200048657600080fd5b50620001e460035481565b3480156200049e57600080fd5b50620004aa6249d40081565b60405163ffffffff9091168152602001620001ee565b620001bd620004d1366004620022cd565b62001c4d565b348015620004e457600080fd5b50620001bd620004f63660046200223b565b62001c5b565b3480156200050957600080fd5b50620001bd6200051b3660046200223b565b62001cd2565b3480156200052e57600080fd5b50620001bd6200054036600462002357565b505050565b3480156200055257600080fd5b50620001bd62000564366004620022cd565b62001d10565b620001bd6200057b3660046200227f565b62001d1b565b8060026200058f82620015e9565b6005811115620005af57634e487b7160e01b600052602160045260246000fd5b1480156200067157506000818152600160209081526040918290205482517f8da5cb5b00000000000000000000000000000000000000000000000000000000815292516001600160a01b0390911692638da5cb5b926004808301939192829003018186803b1580156200062157600080fd5b505afa15801562000636573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906200065c9190620021e7565b6001600160a01b0316336001600160a01b0316145b6200067b57600080fd5b600082815260016020819052604090912080549181015490916001600160a01b031690620006ae906301e1338062002535565b421015620006bb57600080fd5b600060028301819055600383015581547fffffffffffffffffffffffff00000000000000000000000000000000000000001682556040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e860048201526001600160a01b0382169063bbe4277190602401600060405180830381600087803b1580156200074c57600080fd5b505af115801562000761573d6000803e3d6000fd5b50505050837f292b79b9246fa2c8e77d3fe195b251f9cb839d7d038e667c069ee7708c631e1683600201546040516200079c91815260200190565b60405180910390a250505050565b60006080620007bf83821c6249d40062002571565b901c600354620007d0919062002535565b92915050565b8181604051602001620007eb929190620024e8565b604080517fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe081840301815291905280516020909101206002806200082f83620015e9565b60058111156200084f57634e487b7160e01b600052602160045260246000fd5b146200085a57600080fd5b60066200089d85858080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525062001d6492505050565b1115620008a957600080fd5b60008484604051602001620008c0929190620024e8565b604080517fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe081840301815291815281516020928301206000818152600190935291208054919250906001600160a01b03161562000ab6576200092e8160020154662386f26fc1000062001e37565b600280830182905582546001600160a01b03169163b0c8097291620009539162002550565b6040517fffffffff0000000000000000000000000000000000000000000000000000000060e084901b168152600481019190915260006024820152604401600060405180830381600087803b158015620009ac57600080fd5b505af1158015620009c1573d6000803e3d6000fd5b505082546040517f13af40350000000000000000000000000000000000000000000000000000000081523360048201526001600160a01b0390911692506313af40359150602401600060405180830381600087803b15801562000a2357600080fd5b505af115801562000a38573d6000803e3d6000fd5b505082546040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e860048201526001600160a01b03909116925063bbe427719150602401600060405180830381600087803b15801562000a9c57600080fd5b505af115801562000ab1573d6000803e3d6000fd5b505050505b858560405162000ac89291906200248d565b604080519182900382206002840154600185015490845260208401529184917f1f9c649fe47e58bb60f4e52f0d90e4c47a526c9f90c5113df842c025970b66ad910160405180910390a3600060028201819055600382015580547fffffffffffffffffffffffff00000000000000000000000000000000000000001690555050505050565b6001600160a01b03808316600090815260026020908152604080832085845290915290205416801580159062000c1c57506206978063ffffffff16816001600160a01b03166305b344106040518163ffffffff1660e01b815260040160206040518083038186803b15801562000bc257600080fd5b505afa15801562000bd7573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062000bfd919062002451565b62000c09919062002535565b62000c18906212750062002535565b4210155b62000c2657600080fd5b6040517f13af40350000000000000000000000000000000000000000000000000000000081523360048201526001600160a01b038216906313af403590602401600060405180830381600087803b15801562000c8157600080fd5b505af115801562000c96573d6000803e3d6000fd5b50506040517fbbe42771000000000000000000000000000000000000000000000000000000008152600560048201526001600160a01b038416925063bbe427719150602401600060405180830381600087803b15801562000cf657600080fd5b505af115801562000d0b573d6000803e3d6000fd5b505050506001600160a01b0383166000818152600260209081526040808320868452825280832080547fffffffffffffffffffffffff0000000000000000000000000000000000000000169055805192835260059183019190915284917f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e7910160405180910390a3505050565b6000818152600160205260408120819081908190819062000db987620015e9565b815460018301546002840154600390940154929a6001600160a01b03909216995097509195509350915050565b60408051602080820186905233606081901b7fffffffffffffffffffffffffffffffffffffffff00000000000000000000000016838501526054830186905260748084018690528451808503909101815260949093018452825192820192909220600092835260028252838320818452909152919020546001600160a01b03168062000e7157600080fd5b336000908152600260209081526040808320858452825280832080547fffffffffffffffffffffffff00000000000000000000000000000000000000001690558783526001825280832081517f3fa4f245000000000000000000000000000000000000000000000000000000008152915190939262000f5a9289926001600160a01b03881692633fa4f2459260048082019391829003018186803b15801562000f1957600080fd5b505afa15801562000f2e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062000f54919062002451565b62001e52565b6040517fb0c8097200000000000000000000000000000000000000000000000000000000815260048101829052600160248201529091506001600160a01b0384169063b0c8097290604401600060405180830381600087803b15801562000fc057600080fd5b505af115801562000fd5573d6000803e3d6000fd5b50505050600062000fe688620015e9565b905060028160058111156200100b57634e487b7160e01b600052602160045260246000fd5b1415620010cb576040517fbbe42771000000000000000000000000000000000000000000000000000000008152600560048201526001600160a01b0385169063bbe4277190602401600060405180830381600087803b1580156200106e57600080fd5b505af115801562001083573d6000803e3d6000fd5b505060408051858152600160208201523393508b92507f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e791015b60405180910390a3620014e1565b6004816005811115620010ee57634e487b7160e01b600052602160045260246000fd5b14620010f957600080fd5b662386f26fc1000082108062001196575060018301546200111f906202a30090620025b1565b846001600160a01b03166305b344106040518163ffffffff1660e01b815260040160206040518083038186803b1580156200115957600080fd5b505afa1580156200116e573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062001194919062002451565b115b156200124d576040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e360048201526001600160a01b0385169063bbe4277190602401600060405180830381600087803b158015620011f957600080fd5b505af11580156200120e573d6000803e3d6000fd5b505060408051858152600060208201523393508b92507f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e79101620010bd565b8260030154821115620013685782546001600160a01b031615620012e85782546040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e360048201526001600160a01b0390911690819063bbe4277190602401600060405180830381600087803b158015620012cd57600080fd5b505af1158015620012e2573d6000803e3d6000fd5b50505050505b6003830180546002808601919091559083905583547fffffffffffffffffffffffff0000000000000000000000000000000000000000166001600160a01b03861617845560408051848152602081019290925233918a917f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e79101620010bd565b82600201548211156200142d57600283018290556040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e360048201526001600160a01b0385169063bbe4277190602401600060405180830381600087803b158015620013d957600080fd5b505af1158015620013ee573d6000803e3d6000fd5b505060408051858152600360208201523393508b92507f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e79101620010bd565b6040517fbbe427710000000000000000000000000000000000000000000000000000000081526103e360048201526001600160a01b0385169063bbe4277190602401600060405180830381600087803b1580156200148a57600080fd5b505af11580156200149f573d6000803e3d6000fd5b505060408051858152600460208201523393508b92507f7b6c4b278d165a6b33958f8ea5dfb00c8c9d4d0acf1985bef5d10786898bc3e7910160405180910390a35b5050505050505050565b806002620014f982620015e9565b60058111156200151957634e487b7160e01b600052602160045260246000fd5b148015620015db57506000818152600160209081526040918290205482517f8da5cb5b00000000000000000000000000000000000000000000000000000000815292516001600160a01b0390911692638da5cb5b926004808301939192829003018186803b1580156200158b57600080fd5b505afa158015620015a0573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620015c69190620021e7565b6001600160a01b0316336001600160a01b0316145b620015e557600080fd5b5050565b60008181526001602052604081206200160383426200187f565b620016115750600592915050565b80600101544210156200164d57600181015462001633906202a30090620025b1565b421015620016445750600192915050565b50600492915050565b6003810154620016605750600092915050565b50600292915050565b8160026200167782620015e9565b60058111156200169757634e487b7160e01b600052602160045260246000fd5b1480156200175957506000818152600160209081526040918290205482517f8da5cb5b00000000000000000000000000000000000000000000000000000000815292516001600160a01b0390911692638da5cb5b926004808301939192829003018186803b1580156200170957600080fd5b505afa1580156200171e573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620017449190620021e7565b6001600160a01b0316336001600160a01b0316145b6200176357600080fd5b6001600160a01b0382166200177757600080fd5b60008381526001602052604090819020805491517f13af40350000000000000000000000000000000000000000000000000000000081526001600160a01b038581166004830152919291909116906313af403590602401600060405180830381600087803b158015620017e957600080fd5b505af1158015620017fe573d6000803e3d6000fd5b50506000546040517f60aa6d34000000000000000000000000000000000000000000000000000000008152600481018890526001600160a01b03878116602483015290911692506360aa6d349150604401600060405180830381600087803b1580156200186a57600080fd5b505af1158015620014e1573d6000803e3d6000fd5b60006200188c83620007aa565b90911192915050565b806002620018a382620015e9565b6005811115620018c357634e487b7160e01b600052602160045260246000fd5b1480156200198557506000818152600160209081526040918290205482517f8da5cb5b00000000000000000000000000000000000000000000000000000000815292516001600160a01b0390911692638da5cb5b926004808301939192829003018186803b1580156200193557600080fd5b505afa1580156200194a573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190620019709190620021e7565b6001600160a01b0316336001600160a01b0316145b6200198f57600080fd5b60008281526001602052604090206002810154620019b590662386f26fc1000062001e37565b6002820181905581546040517fb0c809720000000000000000000000000000000000000000000000000000000081526004810192909252600160248301526001600160a01b03169063b0c8097290604401600060405180830381600087803b15801562001a2157600080fd5b505af115801562001a36573d6000803e3d6000fd5b50508254604080517f8da5cb5b00000000000000000000000000000000000000000000000000000000815290516001600160a01b039092169350638da5cb5b9250600480820192602092909190829003018186803b15801562001a9857600080fd5b505afa15801562001aad573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062001ad39190620021e7565b6001600160a01b0316837f0f0c27adfd84b60b6f456b0e87cdccb1e5fb9603991588d87fa99f5b6b61e6708360020154846001015460405162001b20929190918252602082015260400190565b60405180910390a36000548154604080517f8da5cb5b00000000000000000000000000000000000000000000000000000000815290516001600160a01b03938416936360aa6d34938893911691638da5cb5b91600480820192602092909190829003018186803b15801562001b9457600080fd5b505afa15801562001ba9573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019062001bcf9190620021e7565b6040517fffffffff0000000000000000000000000000000000000000000000000000000060e085901b16815260048101929092526001600160a01b03166024820152604401600060405180830381600087803b15801562001c2f57600080fd5b505af115801562001c44573d6000803e3d6000fd5b50505050505050565b62001c588162001e65565b50565b8062001c6657600080fd5b600262001ca6838362001c7b600182620025b1565b81811062001c9957634e487b7160e01b600052603260045260246000fd5b90506020020135620015e9565b600581111562001cc657634e487b7160e01b600052602160045260246000fd5b1415620015e557600080fd5b620015e582828080602002602001604051908101604052809392919081815260200183836020028082843760009201919091525062001f7192505050565b62001c588162001fc6565b62001d5983838080602002602001604051908101604052809392919081815260200183836020028082843760009201919091525062001f7192505050565b620005408162001e65565b8051600090600183810191840101825b8183101562001e2f57825160ff16608081101562001da15762001d9960018562002535565b935062001e19565b60e08160ff16101562001dbb5762001d9960028562002535565b60f08160ff16101562001dd55762001d9960038562002535565b60f88160ff16101562001def5762001d9960048562002535565b60fc8160ff16101562001e095762001d9960058562002535565b62001e1660068562002535565b93505b508062001e2681620025cb565b91505062001d74565b949350505050565b60008183111562001e4a575081620007d0565b5080620007d0565b60008183101562001e4a575081620007d0565b3360009081526002602090815260408083208484529091529020546001600160a01b03161562001e9457600080fd5b662386f26fc1000034101562001ea957600080fd5b6000343360405162001ebb906200218c565b6001600160a01b0390911681526020016040518091039082f090508015801562001ee9573d6000803e3d6000fd5b5033600081815260026020908152604080832087845282529182902080547fffffffffffffffffffffffff0000000000000000000000000000000000000000166001600160a01b0386161790559051348152929350909184917fb556ff269c1b6714f432c36431e2041d28436a73b6c3f19c021827bbdc6bfc29910160405180910390a35050565b60005b8151811015620015e55762001fb182828151811062001fa357634e487b7160e01b600052603260045260246000fd5b602002602001015162001fc6565b8062001fbd81620025cb565b91505062001f74565b600354421015801562001feb575060035462001fe790630784ce0062002535565b4211155b62002057576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152601360248201527f72656769737472794f70656e204661696c65640000000000000000000000000060448201526064015b60405180910390fd5b60006200206482620015e9565b905060018160058111156200208957634e487b7160e01b600052602160045260246000fd5b141562002094575050565b6000816005811115620020b757634e487b7160e01b600052602160045260246000fd5b1462002120576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152600b60248201527f6661696c6564204d6f646500000000000000000000000000000000000000000060448201526064016200204e565b60008281526001602052604090206200213d620697804262002535565b60018201819055600060028301819055600383015560405190815283907f87e97e825a1d1fa0c54e1d36c7506c1dea8b1efd451fe68b000cf96f7cf400039060200160405180910390a2505050565b6106a1806200263483390190565b60008083601f840112620021ac578182fd5b50813567ffffffffffffffff811115620021c4578182fd5b6020830191508360208260051b8501011115620021e057600080fd5b9250929050565b600060208284031215620021f9578081fd5b815162002206816200261d565b9392505050565b6000806040838503121562002220578081fd5b82356200222d816200261d565b946020939093013593505050565b600080602083850312156200224e578182fd5b823567ffffffffffffffff81111562002265578283fd5b62002273858286016200219a565b90969095509350505050565b60008060006040848603121562002294578081fd5b833567ffffffffffffffff811115620022ab578182fd5b620022b9868287016200219a565b909790965060209590950135949350505050565b600060208284031215620022df578081fd5b5035919050565b60008060408385031215620022f9578182fd5b8235915060208301356200230d816200261d565b809150509250929050565b600080600080608085870312156200232e578081fd5b84359350602085013562002342816200261d565b93969395505050506040820135916060013590565b6000806000606084860312156200236c578283fd5b83359250602084013562002380816200261d565b929592945050506040919091013590565b60008060408385031215620023a4578182fd5b50508035926020909101359150565b600080600060608486031215620023c8578283fd5b505081359360208301359350604090920135919050565b60008060208385031215620023f2578182fd5b823567ffffffffffffffff808211156200240a578384fd5b818501915085601f8301126200241e578384fd5b8135818111156200242d578485fd5b8660208285010111156200243f578485fd5b60209290920196919550909350505050565b60006020828403121562002463578081fd5b5051919050565b600681106200248957634e487b7160e01b600052602160045260246000fd5b9052565b8183823760009101908152919050565b60208101620007d082846200246a565b60a08101620024bd82886200246a565b6001600160a01b03861660208301528460408301528360608301528260808301529695505050505050565b60208152816020820152818360408301376000818301604090810191909152601f9092017fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffe0160101919050565b600082198211156200254b576200254b62002607565b500190565b6000826200256c57634e487b7160e01b81526012600452602481fd5b500490565b6000817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0483118215151615620025ac57620025ac62002607565b500290565b600082821015620025c657620025c662002607565b500390565b60007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff82141562002600576200260062002607565b5060010190565b634e487b7160e01b600052601160045260246000fd5b6001600160a01b038116811462001c5857600080fdfe60806040526040516106a13803806106a183398101604081905261002291610065565b600080546001600160a01b039092166001600160a01b03199283161790556002805490911633179055426003556005805460ff1916600117905534600455610093565b600060208284031215610076578081fd5b81516001600160a01b038116811461008c578182fd5b9392505050565b6105ff806100a26000396000f3fe608060405234801561001057600080fd5b50600436106100a35760003560e01c8063674f220f11610076578063b0c809721161005b578063b0c8097214610140578063bbe4277114610153578063faab9d391461016657600080fd5b8063674f220f146100e35780638da5cb5b1461012257600080fd5b806305b34410146100a85780630b5ab3d5146100be57806313af4035146100c85780633fa4f245146100db575b600080fd5b60005b6040519081526020015b60405180910390f35b6100c6610179565b005b6100c66100d636600461047d565b610183565b6004546100ab565b60015473ffffffffffffffffffffffffffffffffffffffff165b60405173ffffffffffffffffffffffffffffffffffffffff90911681526020016100b5565b60005473ffffffffffffffffffffffffffffffffffffffff166100fd565b6100c661014e3660046104b8565b610251565b6100c66101613660046104a0565b6102eb565b6100c661017436600461047d565b6103c2565b61018161042d565b565b60025473ffffffffffffffffffffffffffffffffffffffff1633146101a757600080fd5b73ffffffffffffffffffffffffffffffffffffffff81166101c757600080fd5b600080546001805473ffffffffffffffffffffffffffffffffffffffff8084167fffffffffffffffffffffffff0000000000000000000000000000000000000000928316179092559091169083169081179091556040519081527fa2ea9883a321a3e97b8266c2b078bfeec6d50c711ed71f874a90d500ae2eaf369060200160405180910390a150565b60025473ffffffffffffffffffffffffffffffffffffffff16331461027557600080fd5b60055460ff1661028457600080fd5b81600454101561029357600080fd5b600482905560005473ffffffffffffffffffffffffffffffffffffffff166108fc6102be8447610561565b6040518115909202916000818181858888f19350505050806102de575080155b6102e757600080fd5b5050565b60025473ffffffffffffffffffffffffffffffffffffffff16331461030f57600080fd5b60055460ff1661031e57600080fd5b600580547fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0016905561dead6108fc6103e84761035a8583610561565b6103649190610524565b61036e91906104eb565b6040518115909202916000818181858888f1935050505061038e57600080fd5b6040517fbb2ce2f51803bba16bc85282b47deeea9a5c6223eabea1077be696b3f265cf1390600090a16103bf61042d565b50565b60025473ffffffffffffffffffffffffffffffffffffffff1633146103e657600080fd5b600280547fffffffffffffffffffffffff00000000000000000000000000000000000000001673ffffffffffffffffffffffffffffffffffffffff92909216919091179055565b60055460ff161561043d57600080fd5b6000805460405173ffffffffffffffffffffffffffffffffffffffff909116914780156108fc02929091818181858888f19350505050156101815761deadff5b60006020828403121561048e578081fd5b8135610499816105a7565b9392505050565b6000602082840312156104b1578081fd5b5035919050565b600080604083850312156104ca578081fd5b82359150602083013580151581146104e0578182fd5b809150509250929050565b60008261051f577f4e487b710000000000000000000000000000000000000000000000000000000081526012600452602481fd5b500490565b6000817fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff048311821515161561055c5761055c610578565b500290565b60008282101561057357610573610578565b500390565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b73ffffffffffffffffffffffffffffffffffffffff811681146103bf57600080fdfea26469706673582212208a99727db58f74a16e8282a3853a5a14c00f9ffd81a0a7832f329b0b4f09542864736f6c63430008040033a2646970667358221220a803fa29f3c91e963057edfd417b5ce367189da708700e60603b6812e370e7ae64736f6c63430008040033",
+  "devdoc": {
+    "details": "The registrar handles the auction process for the TLD node.",
+    "kind": "dev",
+    "methods": {
+      "acceptRegistrarTransfer(bytes32,address,uint256)": {
+        "details": "Accepts a transfer from a previous registrar; stubbed out here since there      is no previous registrar implementing this interface.",
+        "params": {
+          "deed": "The Deed object for the name being transferred in.",
+          "hash": "The sha3 hash of the label to transfer.",
+          "registrationDate": "The date at which the name was originally registered."
+        }
+      },
+      "cancelBid(address,bytes32)": {
+        "details": "Cancel a bid",
+        "params": {
+          "seal": "The value returned by the shaBid function"
+        }
+      },
+      "constructor": {
+        "details": "Constructs a new Registrar, with the start Date.",
+        "params": {
+          "_ens": "The address of the ENS",
+          "_startDate": "The start date of the registration process."
+        }
+      },
+      "eraseNode(bytes32[])": {
+        "details": "Allows anyone to delete the owner and resolver records for a (subdomain of) a      name that is not currently owned in the registrar. If passing, eg, 'foo.bar.eth',      the owner and resolver fields on 'foo.bar.eth' and 'bar.eth' will all be cleared.",
+        "params": {
+          "labels": "A series of label hashes identifying the name to zero out, rooted at the        registrar's root. Must contain at least one element. For instance, to zero         'foo.bar.eth' on a registrar that owns '.eth', pass an array containing        [keccak256('foo'), keccak256('bar')]."
+        }
+      },
+      "finalizeAuction(bytes32)": {
+        "details": "Finalize an auction after the registration date has passed",
+        "params": {
+          "_hash": "The hash of the name the auction is for"
+        }
+      },
+      "getAllowedTime(bytes32)": {
+        "details": "Returns available date for hash The available time from the `registryStarted` for a hash is proportional to its numeric value.",
+        "params": {
+          "_hash": "The hash to start an auction on"
+        }
+      },
+      "invalidateName(string)": {
+        "details": "Submit a name 6 characters long or less. If it has been registered,      the submitter will earn 50% of the deed value.   We are purposefully handicapping the simplified registrar as a way  to force it into being restructured in a few years.",
+        "params": {
+          "unhashedName": "An invalid name to search for in the registry."
+        }
+      },
+      "isAllowed(bytes32,uint256)": {
+        "details": "Determines if a name is available for registration yet Each name will be assigned a random date in which its auction can be started, from 0 to 8 weeks",
+        "params": {
+          "_hash": "The hash to start an auction on",
+          "_timestamp": "The timestamp to query about"
+        }
+      },
+      "newBid(bytes32)": {
+        "details": "Submit a new sealed bid on a desired hash in a blind auction Bids are sent by sending a message to the main contract with a hash and an amount. The hash contains information about the bid, including the bidded hash, the bid amount, and a random salt. Bids are not tied to any one auction until they are revealed. The value of the bid itself can be masqueraded by sending more than the value of your actual bid. This is followed by a 48h reveal period. Bids revealed after this period will be burned and the ether unrecoverable. Since this is an auction, it is expected that most public hashes, like known domains and common dictionary words, will have multiple bidders pushing the price up.",
+        "params": {
+          "sealedBid": "A sealedBid, created by the shaBid function"
+        }
+      },
+      "releaseDeed(bytes32)": {
+        "details": "After some time, or if we're no longer the registrar, the owner can release      the name and get their ether back.",
+        "params": {
+          "_hash": "The node to release"
+        }
+      },
+      "shaBid(bytes32,address,uint256,bytes32)": {
+        "details": "Hash the values required for a secret bid",
+        "params": {
+          "hash": "The node corresponding to the desired namehash",
+          "salt": "A random value to ensure secrecy of the bid",
+          "value": "The bid amount"
+        },
+        "returns": {
+          "_0": "The hash of the bid values"
+        }
+      },
+      "startAuction(bytes32)": {
+        "details": "Start an auction for an available hash",
+        "params": {
+          "_hash": "The hash to start an auction on"
+        }
+      },
+      "startAuctions(bytes32[])": {
+        "details": "Start multiple auctions for better anonymity Anyone can start an auction by sending an array of hashes that they want to bid for. Arrays are sent so that someone can open up an auction for X dummy hashes when they are only really interested in bidding for one. This will increase the cost for an attacker to simply bid blindly on all new auctions. Dummy auctions that are open but not bid on are closed after a week.",
+        "params": {
+          "_hashes": "An array of hashes, at least one of which you presumably want to bid on"
+        }
+      },
+      "startAuctionsAndBid(bytes32[],bytes32)": {
+        "details": "Start a set of auctions and bid on one of them This method functions identically to calling `startAuctions` followed by `newBid`, but all in one transaction.",
+        "params": {
+          "hashes": "A list of hashes to start auctions on.",
+          "sealedBid": "A sealed bid for one of the auctions."
+        }
+      },
+      "transfer(bytes32,address)": {
+        "details": "The owner of a domain may transfer it to someone else at any time.",
+        "params": {
+          "_hash": "The node to transfer",
+          "newOwner": "The address to transfer ownership to"
+        }
+      },
+      "transferRegistrars(bytes32)": {
+        "details": "Transfers the deed to the current registrar, if different from this one. Used during the upgrade process to a permanent registrar.",
+        "params": {
+          "_hash": "The name hash to transfer."
+        }
+      },
+      "unsealBid(bytes32,uint256,bytes32)": {
+        "details": "Submit the properties of a bid to reveal them",
+        "params": {
+          "_hash": "The node in the sealedBid",
+          "_salt": "The sale in the sealedBid",
+          "_value": "The bid amount in the sealedBid"
+        }
+      }
+    },
+    "title": "Registrar",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "state(bytes32)": {
+        "notice": "State transitions for names: Open -> Auction (startAuction) Auction -> Reveal Reveal -> Owned Reveal -> Open (if nobody bid) Owned -> Open (releaseDeed or invalidateName)"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 13086,
+        "contract": "contracts/registry/HashRegistrar.sol:HashRegistrar",
+        "label": "ens",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_contract(ENS)12380"
+      },
+      {
+        "astId": 13091,
+        "contract": "contracts/registry/HashRegistrar.sol:HashRegistrar",
+        "label": "_entries",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_bytes32,t_struct(Entry)13122_storage)"
+      },
+      {
+        "astId": 13098,
+        "contract": "contracts/registry/HashRegistrar.sol:HashRegistrar",
+        "label": "sealedBids",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_address,t_mapping(t_bytes32,t_contract(Deed)11960))"
+      },
+      {
+        "astId": 13112,
+        "contract": "contracts/registry/HashRegistrar.sol:HashRegistrar",
+        "label": "registryStarted",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_contract(Deed)11960": {
+        "encoding": "inplace",
+        "label": "contract Deed",
+        "numberOfBytes": "20"
+      },
+      "t_contract(ENS)12380": {
+        "encoding": "inplace",
+        "label": "contract ENS",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_mapping(t_bytes32,t_contract(Deed)11960))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(bytes32 => contract Deed))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_bytes32,t_contract(Deed)11960)"
+      },
+      "t_mapping(t_bytes32,t_contract(Deed)11960)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => contract Deed)",
+        "numberOfBytes": "32",
+        "value": "t_contract(Deed)11960"
+      },
+      "t_mapping(t_bytes32,t_struct(Entry)13122_storage)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => struct HashRegistrar.Entry)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Entry)13122_storage"
+      },
+      "t_struct(Entry)13122_storage": {
+        "encoding": "inplace",
+        "label": "struct HashRegistrar.Entry",
+        "members": [
+          {
+            "astId": 13115,
+            "contract": "contracts/registry/HashRegistrar.sol:HashRegistrar",
+            "label": "deed",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_contract(Deed)11960"
+          },
+          {
+            "astId": 13117,
+            "contract": "contracts/registry/HashRegistrar.sol:HashRegistrar",
+            "label": "registrationDate",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 13119,
+            "contract": "contracts/registry/HashRegistrar.sol:HashRegistrar",
+            "label": "value",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 13121,
+            "contract": "contracts/registry/HashRegistrar.sol:HashRegistrar",
+            "label": "highestBid",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "128"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

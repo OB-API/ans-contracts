@@ -11,9 +11,9 @@ module.exports = async ({getNamedAccounts, deployments, network}) => {
 
     const ens = await ethers.getContract('ENSRegistry')
 
-    await deploy('HashRegistar', {
+    await deploy('HashRegistrar', {
         from: deployer, 
-        args: [ens.address, 1639301531, 1639301981, 1639302001, owner],
+        args: [ens.address, 1639301531],
         log: true
     })
 

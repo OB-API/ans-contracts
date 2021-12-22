@@ -73,7 +73,6 @@ module.exports = {
       url: 'https://api.avax-test.network/ext/bc/C/rpc',
       gasPrice: 225000000000,
       gas:8000000,
-      chainId: 43113,
       accounts: {
         mnemonic: "guard crowd mercy margin task slide clog salute hockey arrive giant tortoise glare arrest decide position bottom quantum shoulder indicate moment praise cry try"
       }
